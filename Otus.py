@@ -10,22 +10,21 @@ class Otus:
     self.vibat = 3 #max 3
     # vois olla joku elossaolo-boolean ainakin jos voi epäkuolettaa otuksen
     
-  def muuta_masu_statusta(self, muutos: int):     # self.masu = ruoan self.masu, muutos = ruoan tilan muutos
+  def muuta_masu_statusta(self, muutos: int):
     # Muutosten mahdolliset arvot: -1 (nälkä vähenee), 1 (olio syö jotain), 0 (ei muutosta)
     # Ruokatilat: 0, 1, 2, 3
-  
     if self.masu >= 0 and muutos < 0:
-        return self.masu+muutos
-  
+       self.masu =+ muutos
+
     if self.masu == 3 and muutos > 0:
-        return self.masu
-  
+        pass
+    
     if self.masu >= 0 and self.masu < 3 and muutos >= 0:
-        if self.masu + muutos > 3:
-            return 3
-  
-        if 0 <= (self.masu + muutos) <= 3:
-            return self.masu+muutos
+      if self.masu + muutos > 3:
+        self.masu = 3
+
+      if 0 <= (self.masu + muutos) <= 3:
+        self.masu =+ muutos
 
   def masu_status(self):
     if self.masu == 1 or self.masu == 0:
@@ -67,13 +66,3 @@ class Otus:
     # masu 2/3
     # vibes 1/3
     return "emt string"
-
-
-
-### miina = Otus("Miina")
-
-### miina.masuun_lisaa()
-
-### miinanmasu = miina.masu
-# gfdkjdk
-# miina.masu = hjshfkdsj
