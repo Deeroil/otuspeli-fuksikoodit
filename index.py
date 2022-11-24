@@ -9,10 +9,11 @@ otus = Otus(nimi)
 
 def ohje():
    print("komennot: ")
-   print("0 tapa olio")
-   print("1 syötä oliota")
-   print("2 lopeta peli")
-   print("3 tarkista olion vointi")
+   print("0 tapa otus")
+   print("1 syötä otusta")
+   print("2 leiki otuksen kanssa")
+   print("3 tarkista otuksen vointi")
+   print("4 lopeta peli")
  
 #PÄÄOHEJLMA TAI JOTAIN esim vaikka joku suorita() komento
 ohje()
@@ -28,14 +29,28 @@ while True:
    elif komento == "1":
        #kutsutaan tässä funktiota joka ruokkii otusta
        otus.muuta_masu_statusta(1)
+       otus.masu_status()
+
+       if (otus.vibat <= 1):
+         otus.vibat_status()
+   
    elif komento == "2":
+       #kutsutaan tässä funktiota joka leikkii otuksen kanssa
+      otus.leiki()
+      print("Whii otuksella on kivaa :3")
+
+      if (otus.masu <= 1):
+        otus.masu_status()
+
+   elif komento == "3":
+       #kutsutaan tässä funktiota joka printtaa otuksen statsit
+       print(vars(otus))
+       otus.status()
+    
+   elif komento == "4":
       #  break #lopetetaan peli
       print("Peli loppui")
       quit()
-   elif komento == "3":
-       #kutsutaan tässä funktiota joka printtaa otuksen statsit
-      #  print(vars(otus))
-      otus.status()
    else:
        ohje()
 
