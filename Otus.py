@@ -20,9 +20,9 @@ class Otus:
     # Muutosten mahdolliset arvot: -1 (nälkä vähenee), 1 (olio syö jotain), 0 (ei muutosta)
     # Ruokatilat: 0, 1, 2, 3
     if self.masu >= 0 and muutos < 0:
-       self.masu =+ muutos
+       self.masu += muutos
 
-    if self.masu == 3 and muutos > 0:
+    if self.masu >= 3 and muutos >= 0:
         pass
     
     if self.masu >= 0 and self.masu < 3 and muutos >= 0:
@@ -30,7 +30,7 @@ class Otus:
         self.masu = 3
 
       if 0 <= (self.masu + muutos) <= 3:
-        self.masu =+ muutos
+        self.masu += muutos
 
   def masu_status(self):
     if self.masu == 1 or self.masu == 0:
