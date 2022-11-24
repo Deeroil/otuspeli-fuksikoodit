@@ -46,8 +46,19 @@ class Otus:
         print(bcolors.OKGREEN + "Otuksesi on kylläinen" + bcolors.ENDC)
         print(bcolors.OKGREEN + bcolors.BOLD + "Otusta ei voi ruokkia enempää." + bcolors.ENDC)
 
-  def muuta_vibat_statusta(self, maara):
-    self.vibat += maara
+  def muuta_vibat_statusta(self, muutos):
+    if self.vibat >= 0 and muutos < 0:
+       self.vibat += muutos
+
+    if self.vibat >= 3 and muutos >= 0:
+        pass
+    
+    if self.vibat >= 0 and self.vibat < 3 and muutos >= 0:
+      if self.vibat + muutos > 3:
+        self.vibat = 3
+
+      if 0 <= (self.vibat + muutos) <= 3:
+        self.vibat += muutos
 
   def vibat_status(self):
     if self.vibat == 1 or self.vibat == 0:
