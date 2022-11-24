@@ -10,9 +10,22 @@ class Otus:
     self.vibat = 3 #max 3
     # vois olla joku elossaolo-boolean ainakin jos voi epäkuolettaa otuksen
     
-  def muuta_masu_statusta(self, maara):
-    self.masu += maara
-    # vaikka plussais miinusta niin silti miinustaa
+  def muuta_masu_statusta(self, muutos: int):     # self.masu = ruoan self.masu, muutos = ruoan tilan muutos
+    # Muutosten mahdolliset arvot: -1 (nälkä vähenee), 1 (olio syö jotain), 0 (ei muutosta)
+    # Ruokatilat: 0, 1, 2, 3
+  
+    if self.masu >= 0 and muutos < 0:
+        return self.masu+muutos
+  
+    if self.masu == 3 and muutos > 0:
+        return self.masu
+  
+    if self.masu >= 0 and self.masu < 3 and muutos >= 0:
+        if self.masu + muutos > 3:
+            return 3
+  
+        if 0 <= (self.masu + muutos) <= 3:
+            return self.masu+muutos
 
   def masu_status(self):
     if self.masu == 1 or self.masu == 0:
@@ -53,7 +66,7 @@ class Otus:
     # olion status/olotila esim nälkästatus, vai olion sprite?
     # masu 2/3
     # vibes 1/3
-    pass
+    return "emt string"
 
 
 
