@@ -62,7 +62,7 @@ class Otus:
 
   def vibat_status(self):
     if self.vibat == 1 or self.vibat == 0:
-        print(bcolors.FAIL + bcolors.BOLD + "Otuksella on näläkä. RUOKI >:(" + bcolors.ENDC)
+        print(bcolors.FAIL + bcolors.BOLD + "Otuksella on ihan kamala olo. LEIKI TAI KÄY HUONOSTI >:(" + bcolors.ENDC)
     elif self.vibat < 0:
         print("Otuksesi kuoli.")
         print(bcolors.BOLD + "Hävisit pelin." + bcolors.ENDC)
@@ -74,9 +74,9 @@ class Otus:
         print(bcolors.OKGREEN + bcolors.BOLD + "Otuksen viba ei voi olla tämän parempi." + bcolors.ENDC)
 
   def leiki(self):
-    # miinustaa masua =>
+    # miinustaa masua yhden, lisää vibaa paljon
     self.muuta_masu_statusta(-1)
-    self.muuta_vibat_statusta(1)
+    self.muuta_vibat_statusta(2)
 
   def status(self):
     self.masu_status()
