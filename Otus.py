@@ -1,4 +1,10 @@
-import bcolors
+class bcolors:
+  OKGREEN = '\033[92m'
+  WARNING = '\033[93m'
+  FAIL = '\033[91m'
+  ENDC = '\033[0m'
+  BOLD = '\033[1m'
+
 class Otus:
 
   #TODO:
@@ -53,13 +59,17 @@ class Otus:
         print(bcolors.WARNING + "Otuksellasi on hyvät oltavat :)" + bcolors.ENDC)
         print(bcolors.WARNING + "Ihan jees vibat :)" + bcolors.ENDC)
     elif self.vibat == 3:
-        print(bcolors.OKGREEN + "Otuksesi on otuilee :3" + bcolors.ENDC)
-        print(bcolors.OKGREEN + bcolors.BOLD + "Otus ei voi otuilla tämän enempää." + bcolors.ENDC)
+        print(bcolors.OKGREEN + "Otuksesi otuilee :3" + bcolors.ENDC)
+        print(bcolors.OKGREEN + bcolors.BOLD + "Otuksen viba ei voi olla tämän parempi." + bcolors.ENDC)
 
   def leiki(self):
     # miinustaa masua =>
     self.muuta_masu_statusta(-1)
     self.muuta_vibat_statusta(1)
+
+  def status(self):
+    self.masu_status()
+    self.vibat_status()
 
   def __str__(self):
     # olion status/olotila esim nälkästatus, vai olion sprite?

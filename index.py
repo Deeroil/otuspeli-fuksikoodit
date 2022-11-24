@@ -34,7 +34,8 @@ while True:
       quit()
    elif komento == "3":
        #kutsutaan tässä funktiota joka printtaa otuksen statsit
-       print(vars(otus))
+      #  print(vars(otus))
+      otus.status()
    else:
        ohje()
 
