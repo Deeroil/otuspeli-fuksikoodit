@@ -2,7 +2,9 @@
 
 Fuksikoodit 2022 peli, jossa huolehditaan otuksesta.
 
-Tehty yhdessä Heljän, Elinan ja Macabren kanssa :D gittiä ei tosin käytetty vaan google docsia :DDD
+Aloitettu yhdessä Heljän, Elinan ja Macabren kanssa :D
+
+Jatkettu jälkikäteen hieman
 
 ## Pelin pyöritys
 
@@ -18,17 +20,14 @@ Toimii komentoriviltä, aja `python3 index.py` projektin juurikansiossa.
   - viba: olotila
 - ruokkiminen vähentää nälkää
 - leikkiminen lisää nälkää ja kohentaa olotilaa paljon
-- 
+- otus voi kuolla (vain nälkään)
 
 
 ## Bugit
-- otus ei poistu kuollessa
-  - tämän takia printataan edelleen positiiviset tekstit
+- (kirjaa tänne kun löytyy)
 
 ## TODO:
 
-
-- jos otus voi liian huonosti, se kuolee (esim. objekti poistetaan) ja peli loppuu
 - ASCII-otus ja sille ilmeet
 - nimen hyödyntäminen peliteksteissä
 - otukselle elinaika
@@ -44,7 +43,7 @@ Muita asioita:
 - otukselle oma catchphrase/hokema (vapaavalintainen?)
 - eri persoonallisuuksia
 - rahaominaisuus?
-- pelin loppuminen
+- pelin loppuminen (osittain toteutettu)
   - eläimen kuoleminen
     - status liian pitkään huono
     - (pieni todennäköisyys että herää zombina ==> peli ei lopu)
