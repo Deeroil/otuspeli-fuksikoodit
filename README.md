@@ -28,6 +28,7 @@ Toimii komentoriviltä, aja `python3 index.py` projektin juurikansiossa.
 
 ## TODO:
 
+- otuksen nälkävaihtelu jne isommaksi (nyt maksimi vain 3)
 - ASCII-otus ja sille ilmeet
 - nimen hyödyntäminen peliteksteissä
 - otukselle elinaika
@@ -36,6 +37,7 @@ Toimii komentoriviltä, aja `python3 index.py` projektin juurikansiossa.
   - työt (ehkä raha)
   - lenkittäminen
       - satunnaistapahtumia
+- myös mm. funktioiden erittely, funktionimien selkeytys jne
 
 
 Muita asioita:
