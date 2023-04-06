@@ -14,7 +14,7 @@ class Otus:
     self.nimi = nimi #inputtina niin on str? pitääks jotenkin validoida?
     self.masu = 3 #tarkoitus olla max 3?
     self.vibat = 3 #max 3
-    # vois olla joku elossaolo-boolean ainakin jos voi epäkuolettaa otuksen
+    self.elossa = True
     
   def muuta_masu_statusta(self, muutos: int):
     # Muutosten mahdolliset arvot: -1 (nälkä vähenee), 1 (olio syö jotain), 0 (ei muutosta)
@@ -36,6 +36,7 @@ class Otus:
     if self.masu == 1 or self.masu == 0:
        print(bcolors.FAIL + bcolors.BOLD + "Otuksella on näläkä. RUOKI >:(" + bcolors.ENDC)
     elif self.masu < 0:
+        self.elossa = False
         print("Otuksesi kuoli nälkään.")
         print(bcolors.BOLD + "Hävisit pelin." + bcolors.ENDC)
     elif self.masu == 2:
@@ -61,18 +62,19 @@ class Otus:
         self.vibat += muutos
 
   def vibat_status(self):
-    if self.vibat == 1 or self.vibat == 0:
+    if (self.vibat == 1 or self.vibat == 0) and self.elossa:
         print(bcolors.FAIL + bcolors.BOLD + "Otuksella on ihan kamala olo. LEIKI TAI KÄY HUONOSTI >:(" + bcolors.ENDC)
     elif self.vibat < 0:
         print("Otuksesi kuoli.")
         print(bcolors.BOLD + "Hävisit pelin." + bcolors.ENDC)
-    elif self.vibat == 2:
+        self.elossa = False
+    elif self.vibat == 2 and self.elossa:
         print(bcolors.WARNING + "Otuksellasi on hyvät oltavat :)" + bcolors.ENDC)
         print(bcolors.WARNING + "Ihan jees vibat :)" + bcolors.ENDC)
-    elif self.vibat == 3:
+    elif self.vibat == 3 and self.elossa:
         print(bcolors.OKGREEN + "Otuksesi otuilee :3" + bcolors.ENDC)
         print(bcolors.OKGREEN + bcolors.BOLD + "Otuksen viba ei voi olla tämän parempi." + bcolors.ENDC)
-
+ 
   def leiki(self):
     # miinustaa masua yhden, lisää vibaa paljon
     self.muuta_masu_statusta(-1)

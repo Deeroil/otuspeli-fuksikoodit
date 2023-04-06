@@ -4,8 +4,9 @@ from Otus import Otus
 # -*- coding: utf-8 -*- 
 print('Tervetuloa Otuspeliin :DD jeee')
 
-nimi = input("Annappas otukselle nimi")
-otus = Otus(nimi)
+def luo_otus():
+    nimi = input("Annappas otukselle nimi")
+    return Otus(nimi)
 
 def ohje():
    print("komennot: ")
@@ -14,19 +15,18 @@ def ohje():
    print("2 leiki otuksen kanssa")
    print("3 tarkista otuksen vointi")
    print("4 lopeta peli")
- 
-#PÄÄOHEJLMA TAI JOTAIN esim vaikka joku suorita() komento
+
+otus = luo_otus()
 ohje()
 while True:
    print("")
    komento = input("komento: ")
    if komento == "0":
-       #kutsutaan tässä funktiota joka tappaa otuksen
        print("(x__x)")
        print("Otus kuol :(")
        print("peli loppuu")
        quit()
-   elif komento == "1":
+   elif komento == "1" and otus.elossa:
        #kutsutaan tässä funktiota joka ruokkii otusta
        otus.muuta_masu_statusta(1)
        otus.masu_status()
@@ -34,7 +34,7 @@ while True:
        if (otus.vibat <= 1):
          otus.vibat_status()
    
-   elif komento == "2":
+   elif komento == "2" and otus.elossa:
        #kutsutaan tässä funktiota joka leikkii otuksen kanssa
       otus.leiki()
       print("Whii otuksella on kivaa :3")
@@ -51,8 +51,19 @@ while True:
       #  break #lopetetaan peli
       print("Peli loppui")
       quit()
+
+   elif not otus.elossa:
+      print("Otus on kuollut")
+      vastaus = input("Luo uusi otus? y/n")
+      if vastaus == "y":
+         otus = luo_otus()
+      elif vastaus == "n":
+         print("Säilytettiin raato")
+         ohje()
+
    else:
        ohje()
+
 
 
 #tulostaa kivasti jeee :D:D:D
